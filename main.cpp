@@ -1,8 +1,9 @@
-#include <iostream>
+#include "io.h"
 
-int add(int x, int y);
 
 int main() {
-    std::cout << "3 + 4 = " << add(3, 4) << '\n';
+    int x{readNumber()};
+    int y{readNumber()};
+    writeAnswer(x + y);
     return 0;
 }
