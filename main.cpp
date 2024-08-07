@@ -1,31 +1,20 @@
 #include <iostream>
 
-double getHeight() {
-    double x{};
-    std::cout << "Enter the height of the tower in meters:";
+int getInput() {
+    std::cout << "Enter an integer:";
+    int x{};
     std::cin >> x;
     return x;
 }
 
-double calcDistance(int second, double height) {
-    const double gravity{9.8};
-    double distance = gravity * second * second / 2;
-    return height - distance;
-}
-
-void loop(double height) {
-    for (int i = 0; i <= 5; i++) {
-        double result{calcDistance(i, height)};
-        if (result <= 0) {
-            std::cout << "At " << i << " seconds, the ball is on the ground.\n";
-        } else {
-            std::cout << "At " << i << " seconds, the ball is at height: " << result << " meters.\n";
-        }
-    }
-}
-
 int main() {
-    double height{getHeight()};
-    loop(height);
+    int smaller{getInput()};
+    int larger{getInput()};
+    if (larger < smaller) {
+        std::swap(larger, smaller);
+        std::cout << "Swapping the values\n";
+    }
+    std::cout << "The smaller value is: " << smaller << "\n";
+    std::cout << "The larger value is: " << larger;
     return 0;
 }
