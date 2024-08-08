@@ -1,20 +1,16 @@
 #include <iostream>
 
-int getInput() {
-    std::cout << "Enter an integer:";
-    int x{};
-    std::cin >> x;
-    return x;
+int accumulate(int x) {
+    static int result{0};
+    result += x;
+    return result;
 }
 
 int main() {
-    int smaller{getInput()};
-    int larger{getInput()};
-    if (larger < smaller) {
-        std::swap(larger, smaller);
-        std::cout << "Swapping the values\n";
-    }
-    std::cout << "The smaller value is: " << smaller << "\n";
-    std::cout << "The larger value is: " << larger;
+    std::cout << accumulate(4) << '\n'; // prints 4
+    std::cout << accumulate(3) << '\n'; // prints 7
+    std::cout << accumulate(2) << '\n'; // prints 9
+    std::cout << accumulate(1) << '\n'; // prints 10
+
     return 0;
 }
